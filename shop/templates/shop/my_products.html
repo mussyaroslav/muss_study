@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load auth_extras %}
+{% block title %}
+    Мои продукты
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="news__category__nav">
+            <div class="burger1">
+                <span onclick="myFunction__nav__news()" class="drop__btn__news">Магазин<i class="arrow__down__news"></i></span>
+                <div id="mySidenav" class="dropdown-content__news">
+                    <div class="news__dropdown__links__block">
+                        {% url 'shop_index' as url__shop__index %}
+                        {% url 'my_products' as url__my__products %}
+                        <a {% if request.path ==  url__shop__index  %} class="active__news__cat" {% else %} class="category__nav" {% endif %} href="{{ url__shop__index }}">Каталог</a>
+                    </div>
+                    <div class="news__dropdown__links__block">
+                        {% url 'my_products' as url__my__products %}
+                        <a {% if request.path ==  url__my__products  %} class="active__news__cat" {% else %} class="category__nav" {% endif %} href="{{ url__my__products }}">Мои покупки</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="block__nav__news1515">
+            <div class="news__nav__block">
+                <div class="category__nav__block22">
+                    {% url 'shop_index' as url__shop__index %}
+                    {% url 'my_products' as url__my__products %}
+                    <a href="{{ url__shop__index }}" {% if request.path == url__shop__index %} class="active__news__cat" {% else %} class="category__nav" {% endif %}>Каталог</a>
+                    <a href="{{ url__my__products }}" {% if request.path == url__my__products %} class="active__news__cat" {% else %} class="category__nav" {% endif %}>Мои покупки</a>
+                </div>
+            </div>
+        </div>
+        {% if request.user|has_group:"Course_1" %}
+            1
+        {% endif %}
+        {% if request.user|has_group:"Course_2" %}
+            2
+        {% endif %}
+    </div>
+{% endblock %}

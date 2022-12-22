@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Новости
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="news__category__nav">
+            {% include 'inc/_news_burger_mobile.html' %}
+        </div>
+        <div class="news__con__block">
+                {% include 'inc/_news_nav.html' %}
+            <div>
+                {% for item in news %}
+                    <div class="news__main__block">
+                        <div class="news__title__block">
+                            <h1 class="news__title">{{ item.title_news }}</h1>
+                            <a href="{% url 'news_category' item.category.pk %}" class="category">Категория: {{ item.category }}</a>
+                        </div>
+                        <div class="news__content__block">
+                            {{ item.content_news|linebreaksbr|truncatewords:"15" }}
+                            <br>
+                            <div class="read__more__block">
+                                <a class="read__more" href="{{ item.get_absolute_url }}">Открыть новость</a>
+                                {% if user.is_staff %}
+                                    <a class="read__more" href="{% url 'edit_news' item.pk %}">Редактировать</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="news__photo__block">
+                            {% if item.photo_news %}
+                                <img class="news__photo" alt="" src="{{ item.photo_news.url }}">
+                            {% endif %}
+                        </div>
+                        <div class="created__at__block">
+                            <p class="created__at">Дата публикации: {{ item.created_at }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

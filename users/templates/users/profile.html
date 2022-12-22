@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Профиль
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="profile__user__block">
+            <div class="user__background__photo__block">
+                <img class="user__background" src="{{ object.profile.photo_background.url }}" alt="">
+            </div>
+            <div>
+                <img class="profile__image" src="{{ object.profile.photo.url }}" alt="">
+            </div>
+            <div class="profile__user__full__name__block">
+                <p class="profile__user__full__name">{{ object.get_full_name }}</p>
+                {% comment %}{% if request.user.username == object.username %}
+                    <a href="{% url 'profile_edit' %}" class="profile__user__setting__link">Редактировать</a>
+                {% endif %}{% endcomment %}
+            </div>
+            <div class="user__info__main__block">
+                <div class="user__info__left__block">
+                    <div class="user__info">
+                        <p class="user__info__title">Дата рождения:&nbsp</p>
+                        {% if object.profile.date_of_birth %}
+                            <p class="user__info__p">{{ object.profile.date_of_birth }}</p>
+                        {% else %}
+                            <p class="user__info__p">-</p>
+                        {% endif %}
+                    </div>
+                    <div class="user__info">
+                        <p class="user__info__title">Город:&nbsp</p>
+                        {% if object.profile.city %}
+                            <p class="user__info__p">{{ object.profile.city }}</p>
+                        {% else %}
+                            <p class="user__info__p">-</p>
+                        {% endif %}
+                    </div>
+                    <div class="user__info">
+                        <p class="user__info__title">Школа:&nbsp</p>
+                        {% if object.profile.school %}
+                            <p class="user__info__p">{{ object.profile.school }}</p>
+                        {% else %}
+                            <p class="user__info__p">-</p>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="user__info__right__block">
+                    <div class="user__info">
+                        <p class="user__info__title">Инстаграм:&nbsp</p>
+                        {% if object.profile.inst_link %}
+                            <p><a class="profile__inst__link" href="https://www.instagram.com/{{ object.profile.inst_link|cut:"@" }}/">{% if request.user_agent.is_mobile %}@{{ object.profile.inst_link|cut:"@"|truncatechars:"15" }}{% else %}@{{ object.profile.inst_link|cut:"@" }}{% endif %}</a></p>
+                        {% else %}
+                            <p class="user__info__p">-</p>
+                        {% endif %}
+                    </div>
+                    <div class="user__info">
+                        <p class="user__info__title">Вконтакте:&nbsp</p>
+                        {% if object.profile.vk_link %}
+                            <p><a class="profile__vk__link" href="https://vk.com/{{ object.profile.vk_link|cut:"@" }}">{% if request.user_agent.is_mobile %}@{{ object.profile.vk_link|cut:"@"|truncatechars:"15" }}{% else %}@{{ object.profile.vk_link|cut:"@" }}{% endif %}</a></p>
+                        {% else %}
+                            <p class="user__info__p">-</p>
+                        {% endif %}
+                    </div>
+                </div>
+                {% for user_group in object.groups.all %}
+                    {% if user_group.name == 'Course_1' %}
+                        Course
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

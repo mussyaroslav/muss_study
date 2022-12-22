@@ -1,0 +1,88 @@
+{% load static %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/register/register.css'%}">
+<title>Регистрация</title>
+<div class="register__container">
+        <div class="register__block">
+            <div class="register__logo">
+                <p class="register__header">Присоединиться к нам</p>
+            </div>
+            <div class="login__or__register">
+                <div class="login__or__register__block">
+                    <a href="{% url 'user_login' %}" class="login__url">Войти</a>
+                    <a href="{% url 'register' %}" class="register__url">Зарегистрироваться</a>
+                </div>
+            </div>
+            <form method="POST" action="" class="form">
+                {% csrf_token %}
+                <div class="register__username__main__block">
+                    <div class="register__label__block">
+                        <p class="register__label">Имя пользователя</p>
+                    </div>
+                    <div class="register__username__input__block">
+                        {{ form.username }}
+                    </div>
+                    <div class="message__min__length__block">
+                        <p class="message__min__length">Не менее 6 символов</p>
+                    </div>
+                </div>
+                <div class="register__password__main__block">
+                    <div class="register__label__block">
+                        <p class="register__label">Эл. адрес</p>
+                    </div>
+                    <div class="register__input__block">
+                        {{ form.email }}
+                    </div>
+                </div>
+                <div class="first__name__main__block">
+                    <div class="first__name__label__block">
+                        <p class="register__label">Имя</p>
+                        <p class="register__label">Фамилия</p>
+                    </div>
+                    <div class="first__name__input__block">
+                        {{ form.first_name }}
+                        {{ form.last_name }}
+                    </div>
+                </div>
+                <div class="register__password__main__block">
+                    <div class="register__label__block">
+                        <p class="register__label">Пароль</p>
+                    </div>
+                    <div class="register__input__block">
+                        {{ form.password1 }}
+                    </div>
+                </div>
+                <div class="register__password__main__block">
+                    <div class="register__label__block">
+                        <p class="register__label">Повторите пароль</p>
+                    </div>
+                    <div class="register__input__block">
+                        {{ form.password2 }}
+                    </div>
+                </div>
+                <div class="login__btn__block">
+                    <button type="submit" class="login__btn">Регистрация</button>
+                </div>
+            </form>
+        </div>
+    {% if form.errors %}
+        {% if form.errors.username %}
+            <div class="errors__block">
+                <p class="errors__text">{{ form.errors.username.as_text|cut:"*" }}</p>
+            </div>
+        {% endif %}
+        {% if form.errors.email %}
+            <div class="errors__block">
+                <p class="errors__text">{{ form.errors.email.as_text|cut:"*" }}</p>
+            </div>
+        {% endif %}
+        {% if form.errors.password2 %}
+            <div class="errors__block">
+                <p class="errors__text">{{ form.errors.password2.as_text|cut:"*" }}</p>
+            </div>
+        {% endif %}
+    {% endif %}
+
+</div>

@@ -1,0 +1,225 @@
+p {
+  margin: 0;
+}
+
+.profile__image {
+  width: calc(1140px / 5.7 - 1px);
+  height: calc(1140px / 5.7 - 1px);
+  object-fit: cover;
+  border-radius: 200px;
+  position: absolute;
+  margin-top: calc(((1140px / 3.1 - 1px) - (1140px / 3.1 - 1px) - (1140px / 3.1 - 1px)) / 2 - ((1140px / 5.7 - 1px) / 2));
+  margin-left: 40px;
+}
+
+.profile__user__block {
+  background: #fff;
+  margin: 15px 0;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.user__background__photo__block {
+  width: 100%;
+  height: calc(1140px / 3.1 - 1px);
+}
+
+.user__background {
+  object-fit: cover;
+  width: 100%;
+  height: calc(1140px / 3.1 - 1px);
+  border-radius: 5px 5px 0 0;
+}
+
+.profile__inst__link {
+  text-decoration: none;
+  color: #1b95e0;
+  font-size: 15px;
+}
+
+.profile__inst__link:hover {
+  text-decoration: underline;
+  color: #1d8ff3;
+  transition: all 0.12s linear;
+}
+
+.profile__vk__link {
+  text-decoration: none;
+  color: #1b95e0;
+  font-size: 15px;
+}
+
+.profile__vk__link:hover {
+  text-decoration: underline;
+  color: #1d8ff3;
+  transition: all 0.12s linear;
+}
+
+.profile__user__full__name {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.profile__user__full__name__block {
+  padding: 10px 15px;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  border-bottom: 2px solid #efeff0;
+}
+
+.profile__user__setting__link {
+  font-size: 16px;
+  font-weight: 600;
+  padding: 4px 9px;
+  color: #1da1f3;
+  border: 1px solid #1da1f3;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.profile__user__setting__link:hover {
+  transition: 0.12s linear all;
+  background: rgba(29, 161, 243, 0.1);
+}
+
+.user__info__main__block {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+}
+
+.user__info__left__block {
+  width: 50%;
+}
+
+.user__info__right__block {
+  width: 50%;
+}
+
+.user__info {
+  display: flex;
+  padding: 5px;
+}
+
+.user__info__title {
+  font-size: 15px;
+  font-weight: 600;
+  min-width: 150px;
+}
+
+.user__info__p {
+  font-size: 15px;
+  font-weight: 400;
+}
+
+@media (min-width: 991.98px) and (max-width: 1199.98px) {
+  .user__background {
+    height: calc(960px / 3.1 - 1px);
+  }
+
+  .user__background__photo__block {
+    height: calc(960px / 3.1 - 1px);
+  }
+
+  .profile__image {
+    width: calc(960px / 5.7 - 1px);
+    height: calc(960px / 5.7 - 1px);
+    margin-top: calc(((960px / 3.1 - 1px) - (960px / 3.1 - 1px) - (960px / 3.1 - 1px)) / 2 - ((960px / 5.7 - 1px) / 2));
+    margin-left: 30px;
+  }
+}
+@media (min-width: 767.98px) and (max-width: 991.98px) {
+  .user__background {
+    height: calc(720px / 3.1 - 1px);
+  }
+
+  .user__background__photo__block {
+    height: calc(720px / 3.1 - 1px);
+  }
+
+  .profile__image {
+    width: calc(720px / 5.7 - 1px);
+    height: calc(720px / 5.7 - 1px);
+    margin-top: calc(((720px / 3.1 - 1px) - (720px / 3.1 - 1px) - (720px / 3.1 - 1px)) / 2 - ((720px / 5.7 - 1px) / 2));
+    margin-left: 20px;
+  }
+
+  .profile__user__block {
+    margin: 5px 0;
+  }
+}
+@media (min-width: 575.98px) and (max-width: 767.98px) {
+  .user__background {
+    height: calc(540px / 3.1 - 1px);
+  }
+
+  .user__background__photo__block {
+    height: calc(540px / 3.1 - 1px);
+  }
+
+  .profile__image {
+    width: calc(540px / 5.7 - 1px);
+    height: calc(540px / 5.7 - 1px);
+    margin-top: calc(((540px / 3.1 - 1px) - (540px / 3.1 - 1px) - (540px / 3.1 - 1px)) / 2 - ((540px / 5.7 - 1px) / 2));
+    margin-left: 10px;
+  }
+
+  .profile__user__block {
+    margin: 5px 0;
+  }
+
+  .user__info__main__block {
+    display: block;
+  }
+
+  .user__info__left__block {
+    width: 100%;
+  }
+
+  .user__info__right__block {
+    width: 100%;
+  }
+}
+@media (max-width: 575.98px) {
+  .user__background {
+    height: calc(100vw / 3.1 - 1px);
+    border-radius: 0;
+  }
+
+  .user__background__photo__block {
+    height: calc(100vw / 3.1 - 1px);
+  }
+
+  .profile__image {
+    width: calc(100vw / 5.7 - 1px);
+    height: calc(100vw / 5.7 - 1px);
+    margin-top: calc(((100vw / 3.1 - 1px) - (100vw / 3.1 - 1px) - (100vw / 3.1 - 1px)) / 2 - ((100vw / 5.7 - 1px) / 2));
+    margin-left: 10px;
+  }
+
+  .profile__user__block {
+    margin: 5px 0;
+    border-radius: 0;
+  }
+
+  .user__info__main__block {
+    display: block;
+  }
+
+  .user__info__left__block {
+    width: 100%;
+  }
+
+  .user__info__right__block {
+    width: 100%;
+  }
+
+  .user__info__title {
+    min-width: inherit;
+    width: inherit;
+  }
+}
+
+/*# sourceMappingURL=profile.css.map */

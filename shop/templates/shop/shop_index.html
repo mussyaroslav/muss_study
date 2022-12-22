@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Магазин
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="news__category__nav">
+            <div class="burger1">
+                <span onclick="myFunction__nav__news()" class="drop__btn__news">Магазин<i class="arrow__down__news"></i></span>
+                <div id="mySidenav" class="dropdown-content__news">
+                    <div class="news__dropdown__links__block">
+                        {% url 'shop_index' as url__shop__index %}
+                        <a {% if request.path ==  url__shop__index  %} class="active__news__cat" {% else %} class="category__nav" {% endif %} href="{{ url__shop__index }}">Каталог</a>
+                    </div>
+                    <div class="news__dropdown__links__block">
+                        <a class="category__nav1" href="#online__course__id">Курсы</a>
+                    </div>
+                    <div class="news__dropdown__links__block">
+                        <div class="category__title">
+                            <a class="category__nav1" href="#online__vebinar__id">Вебинары</a>
+                        </div>
+                    </div>
+                    <div class="news__dropdown__links__block">
+                        {% url 'my_products' as url__my__products %}
+                        <a {% if request.path ==  url__my__products  %} class="active__news__cat" {% else %} class="category__nav" {% endif %} href="{{ url__my__products }}">Мои покупки</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="shop__index__main__block">
+            <div class="block__nav__news1515">
+                <div class="news__nav__block">
+                    <div class="category__nav__block22">
+                        {% url 'shop_index' as url__shop__index %}
+                        {% url 'my_products' as url__my__products %}
+                        <a href="{{ url__shop__index }}" {% if request.path == url__shop__index %} class="active__news__cat" {% else %} class="category__nav" {% endif %}>Каталог</a>
+                        <a class="category__nav1" href="#online__course__id">Курсы</a>
+                        <div class="category__title">
+                            <a class="category__nav1" href="#online__vebinar__id">Вебинары</a>
+                        </div>
+                        <a href="{{ url__my__products }}" {% if request.path == url__my__products %} class="active__news__cat" {% else %} class="category__nav" {% endif %}>Мои покупки</a>
+                    </div>
+                </div>
+            </div>
+            <div class="product__main__section">
+                <div id="online__course__id" class="online__course__shop__main__block">
+                    <div class="online__course__title__block">
+                        <h2 class="online__course__h2">
+                            Онлайн курсы
+                        </h2>
+                    </div>
+                    <div class="product__section__block">
+                        {% for item in products %}
+                            {% if item.category == "Онлайн курс" %}
+                                <div class="product__main__block">
+                                    <img alt="" class="product__image" src="{{ item.product_image.url }}">
+                                    <div class="product__inside__block">
+                                        <div class="product__h2__block">
+                                            <h2 class="product__name__h2"><a class="product__name__h2__link" href="{{ item.preview }}">{{ item.product_name }}</a></h2>
+                                        </div>
+                                        <div class="product__description__block">
+                                            <p class="product__description">{{ item.product_description }}</p>
+                                        </div>
+                                        {% if item.old_price %}
+                                            <div class="product__with__old__price">
+                                                <div class="product__price__block">
+                                                    <p class="product__price">{{ item.price }} руб.</p>
+                                                </div>
+                                                <div class="product__old__price__block">
+                                                    <del class="product__old__price">{{ item.old_price }} руб.</del>
+                                                </div>
+                                            </div>
+                                        {% else %}
+                                            <div class="product__with__price">
+                                                <div class="product__price__block">
+                                                    <p class="product__price">{{ item.price }} руб.</p>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                        <div class="product__buy__preview__block">
+                                            <a class="preview__button" href="{{ item.preview }}">Подробнее</a>
+                                            <a class="buy__button" href="{% url 'yandex_payments' item.id %}">Купить</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <div id="online__vebinar__id" class="online__course__shop__main__block">
+                    <div class="online__course__title__block">
+                        <h2 class="online__course__h2">
+                            Вебинары
+                        </h2>
+                    </div>
+                    <div class="product__section__block">
+                        {% for item in products %}
+                            {% if item.category == "Вебинар" %}
+                                <div class="product__main__block">
+                                    <img alt="" class="product__image" src="{{ item.product_image.url }}">
+                                    <div class="product__inside__block">
+                                        <div class="product__h2__block">
+                                            <h2 class="product__name__h2"><a class="product__name__h2__link" href="{{ item.preview }}">{{ item.product_name }}</a></h2>
+                                        </div>
+                                        <div class="product__description__block">
+                                            <p class="product__description">{{ item.product_description }}</p>
+                                        </div>
+                                        {% if item.old_price %}
+                                            <div class="product__with__old__price">
+                                                <div class="product__price__block">
+                                                    <p class="product__price">{{ item.price }} руб.</p>
+                                                </div>
+                                                <div class="product__old__price__block">
+                                                    <del class="product__old__price">{{ item.old_price }} руб.</del>
+                                                </div>
+                                            </div>
+                                        {% else %}
+                                            <div class="product__with__price">
+                                                <div class="product__price__block">
+                                                    <p class="product__price">{{ item.price }} руб.</p>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                        <div class="product__buy__preview__block">
+                                            <a class="preview__button" href="{{ item.preview }}">Подробнее</a>
+                                            <a class="buy__button" href="{% url 'yandex_payments' item.id %}">Купить</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

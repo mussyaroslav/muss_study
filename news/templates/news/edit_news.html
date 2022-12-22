@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Редактировать новость
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="news__category__nav">
+            {% include 'inc/_news_burger_mobile.html' %}
+        </div>
+        <div class="news__con__block">
+                {% include 'inc/_news_nav.html' %}
+            <div class="add__news__form__block">
+                <h1 class="add__news__h1">Редактировать новость</h1>
+                <form id="add__news__form" class="add__news__form" action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="news__add__title">
+                        <div class="news__add__title__label__block">
+                            <p class="news__add__title__label">Название новости:</p>
+                        </div>
+                        <div class="news__add__title__input__block">
+                            {{ form.title_news }}
+                        </div>
+                    </div>
+                    <div class="news__add__content">
+                        <div class="news__add__content__label__block">
+                            <p class="news__add__content__label">Контент новости:</p>
+                        </div>
+                        <div class="news__add__content__input__block">
+                            {{ form.content_news }}
+                        </div>
+                    </div>
+                    <div class="news__add__category">
+                        <div class="news__add__category__label__block">
+                            <p class="news__add__category__label">Категория новости:</p>
+                        </div>
+                        <div class="news__add__category__block">
+                            {{ form.category }}
+                            <div class="edit__category__admin">
+                                <a class="related-widget-wrapper-link change-related" id="change_id_category" data-href-template="/admin/news/category/__fk__/change/?_to_field=id&amp;_popup=1" title="Изменить выбранный объект типа " Категория""="" href="/admin/news/category/1/change/?_to_field=id&amp;_popup=1"><img src="/static/admin/img/icon-changelink.svg" alt="Изменить"></a>
+                            </div>
+                            <div class="edit__category__admin">
+                                <a class="related-widget-wrapper-link add-related" id="add_id_category" href="/admin/news/category/add/?_to_field=id&amp;_popup=1" title="Добавить ещё один объект типа " Категория""=""><img src="/static/admin/img/icon-addlink.svg" alt="Добавить"></a>
+                            </div>
+                            <div class="edit__category__admin">
+                                <a class="related-widget-wrapper-link delete-related" id="delete_id_category" data-href-template="/admin/news/category/__fk__/delete/?_to_field=id&amp;_popup=1" title="Удалить выбранный объект типа " Категория""="" href="/admin/news/category/1/delete/?_to_field=id&amp;_popup=1"><img src="/static/admin/img/icon-deletelink.svg" alt="Удалить"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="news__add__photo">
+                        <div class="news__add__photo__label__block">
+                            <p class="news__add__photo__label">Фото:</p>
+                        </div>
+                        <div class="add_news__photo__block">
+                            <label class="id_photo_news" for="id_photo_news">Выбрать фото</label>
+                            <input type="file" name="photo_news" accept="image/*" id="id_photo_news">
+                        </div>
+                        <div id="progress-box" class="not-visible"></div>
+                    </div>
+                    <div id="imageBox" class="news__edit__photo__label__block">
+                        {% if news.photo_news %}
+                            <img class="edit__news__photo" alt="" src="{{ news.photo_news.url }}">
+                        {% endif %}
+                    </div>
+                    <div class="btn__add__news">
+                        <div class="add__news__back__block">
+                            <a href="{% url 'delete_news' news.pk %}" class="add__news__back">Удалить</a>
+                        </div>
+                        <div class="btn__add__news__i__block">
+                            <input type="submit" value="Сохранить" class="btn__add__news__i">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,362 @@
+@import "../../../static/sass/variables";
+@import "../../../static/sass/mixins";
+
+.settings__input { /* Сама форма */
+    width: 100%;
+    padding: 5px 10px;
+    border: $input__border 2px solid;
+    border-radius: 5px;
+    background: $input__border;
+}
+
+.settings__input:hover {
+    border: $input__border__hover 2px solid;
+    transition: .12s all linear;
+}
+
+.settings__input:focus {
+    outline: none;
+    border-color: $blue__text__button;
+    background: $white;
+    transition: .12s all linear;
+}
+
+.settings__profile__main__block {
+    max-width: 540px;
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    background: $white;
+    border-radius: 5px;
+}
+
+.first__name__text__block {
+    display: flex;
+    height: 29px;
+    margin: 10px 75px 15px 161px;
+}
+
+.name__setting__input__block {
+    width: 250px;
+}
+
+.first__name__setting__block {
+    width: 37px;
+    margin: 0 15px 0 0;
+    display: flex;
+    align-items: center;
+}
+
+.text__first__name__setting {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: $text__color;
+}
+
+.last__name__setting__block {
+    width: 76px;
+    margin: 0 15px 0 0;
+    display: flex;
+    align-items: center;
+}
+
+.last__name__name__setting {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: $text__color;
+}
+
+.last__name__text__block {
+    display: flex;
+    height: 29px;
+    margin: 0 75px 15px 122px;
+}
+
+.date__of__birth__text__block {
+    display: flex;
+    height: 29px;
+    margin: 0 75px 15px 77px;
+}
+
+.date__of__birth__setting__block {
+    width: 121px;
+    margin: 0 15px 0 0;
+    display: flex;
+    align-items: center;
+}
+
+.date__of__birth__name__setting {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: $text__color;
+}
+
+.email__text__block {
+    display: flex;
+    height: 29px;
+    margin: 0 75px 15px 123px;
+}
+
+.email__setting__block {
+    width: 75px;
+    margin: 0 15px 0 0;
+    display: flex;
+    align-items: center;
+}
+
+.email__setting {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 600;
+    color: $text__color;
+}
+
+label[for="upload-photo-profile"] {
+    margin: 0;
+    border-radius: 40px;
+    cursor: pointer;
+    padding: 15px 8.75px 5px 8.75px;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+label[for="id_photo_background"] {
+    margin: 0;
+    border-radius: 40px;
+    cursor: pointer;
+    padding: 15px 8.75px 5px 8.75px;
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.settings__photo__input {
+    display: none;
+}
+
+label[for="upload-photo-profile"]:hover {
+    background: rgba(239, 239, 240, 0.25);
+    color: $white;
+    transition: .12s all linear;
+}
+
+label[for="id_photo_background"]:hover {
+    background: rgba(239, 239, 240, 0.25);
+    color: $white;
+    transition: .12s all linear;
+}
+
+.id_photo_background__input {
+    display: none;
+}
+
+.progress__block2 {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.file__block {
+    max-width: 40px;
+    width: 100%;
+    position: absolute;
+    margin-top: -100px;
+    margin-left: 52px;
+}
+
+.change__profile__photo__svg {
+    width: 22.5px;
+    fill: $white;
+    opacity: 85%;
+}
+
+.setting__profile__photo {
+    width: calc(540px / 5.7 - 1px);
+    height: calc(540px / 5.7 - 1px);
+    margin-top: calc(((540px / 3.1 - 1px) - (540px / 3.1 - 1px) - (540px / 3.1 - 1px)) / 2 - ((540px / 5.7 - 1px) / 2));
+    margin-left: 25px;
+    object-fit:cover;
+    border-radius: 210px;
+    position: absolute;
+}
+
+.new__password__inner1 {
+    width: 100%;
+    padding: 27px 0 15px 0;
+    text-align: center;
+}
+
+.setting__profile__photo__background {
+    width: 100%;
+    height: 163.52px;
+    object-fit: cover;
+}
+
+.file__block1255 {
+    max-width: 40px;
+    width: 100%;
+    position: absolute;
+    margin-top: -100px;
+    margin-left: 250px;
+}
+
+.vk__link__text__block {
+    display: flex;
+    height: 29px;
+    margin: 0 75px 37px 115px;
+}
+
+.vk__link__setting__block {
+    width: 83px;
+    margin: 0 15px 0 0;
+    display: flex;
+    align-items: center;
+}
+
+.inst__link__text__block {
+    display: flex;
+    height: 29px;
+    margin: 0 75px 37px 111px;
+}
+
+.inst__link__setting__block {
+    width: 87px;
+    margin: 0 15px 0 0;
+    display: flex;
+    align-items: center;
+}
+
+.vk__link__info {
+    margin: 5px 0 0 0;
+    font-size: 12px;
+    color: $text__color__subtitle;
+}
+
+.city__text__block {
+    display: flex;
+    height: 29px;
+    margin: 0 75px 15px 148px;
+}
+
+.city__setting__block {
+    width: 50px;
+    margin: 0 15px 0 0;
+    display: flex;
+    align-items: center;
+}
+
+.school__text__block {
+    display: flex;
+    height: 29px;
+    margin: 0 75px 15px 142px;
+}
+
+.school__setting__block {
+    width: 56px;
+    margin: 0 15px 0 0;
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 575.98px) {
+    .file__block1255 {
+        margin-top: calc(((100vw / 3.1 - 1px) - (100vw / 3.1 - 1px) - (100vw / 3.1 - 1px)) / 2 - 17px);
+        margin-left: calc(100vw / 2.2 - 1px);
+    }
+    .setting__profile__photo__background__block {
+        height: calc(100vw / 3.1 - 1px);
+    }
+
+    .setting__profile__photo__background {
+        height: calc(100vw / 3.1 - 1px);
+    }
+
+    .setting__profile__photo {
+        width: calc(100vw / 5.7 - 1px);
+        height: calc(100vw / 5.7 - 1px);
+        margin-top: calc(((100vw / 3.1 - 1px) - (100vw / 3.1 - 1px) - (100vw / 3.1 - 1px)) / 2 - ((100vw / 5.7 - 1px) / 2));
+        margin-left: 25px;
+    }
+
+    .file__block {
+        margin-top: calc(((100vw / 3.1 - 1px) - (100vw / 3.1 - 1px) - (100vw / 3.1 - 1px)) / 2 - 12px);
+        margin-left: calc(100vw / 10 - 1px);
+    }
+
+    .first__name__text__block {
+        height: 55px;
+        width: 100%;
+        padding: 0 15px;
+        display: block;
+        margin: 10px 0 15px 0;
+    }
+
+    .last__name__text__block {
+        height: 55px;
+        width: 100%;
+        padding: 0 15px;
+        display: block;
+        margin: 0 0 15px 0;
+    }
+
+    .email__text__block {
+        height: 55px;
+        width: 100%;
+        padding: 0 15px;
+        display: block;
+        margin: 0 0 15px 0;
+    }
+
+    .date__of__birth__text__block {
+        height: 55px;
+        width: 100%;
+        padding: 0 15px;
+        display: block;
+        margin: 0 0 15px 0;
+    }
+
+    .vk__link__text__block {
+        height: 55px;
+        width: 100%;
+        padding: 0 15px;
+        display: block;
+        margin: 0 0 37px 0;
+    }
+
+    .inst__link__text__block {
+        height: 55px;
+        width: 100%;
+        padding: 0 15px;
+        display: block;
+        margin: 0 0 37px 0;
+    }
+
+    .city__text__block {
+        height: 55px;
+        width: 100%;
+        padding: 0 15px;
+        display: block;
+        margin: 0 0 15px 0;
+    }
+
+    .school__text__block {
+        height: 55px;
+        width: 100%;
+        padding: 0 15px;
+        display: block;
+        margin: 0 0 15px 0;
+    }
+
+    .name__setting__input__block {
+        width: 100%;
+        padding-top: 6px;
+    }
+
+    .settings__profile__main__block {
+        border-radius: 0;
+    }
+}

@@ -1,0 +1,57 @@
+{% load static %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{% static 'css/login/login.css' %}">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<title>Вход</title>
+    <div class="login__container">
+        <div class="login__block">
+            <div class="login__logo">
+                <p class="login__header">Войти на сайт</p>
+            </div>
+            <div class="login__or__register">
+                <div class="login__or__register__block">
+                    <a href="{% url 'user_login' %}" class="login">Войти</a>
+                    <a href="{% url 'register' %}" class="register">Зарегистрироваться</a>
+                </div>
+            </div>
+            <form method="POST" action="" class="form">
+                {% csrf_token %}
+                <div class="username__main__block">
+                    <div class="username__block">
+                        <p class="username">Имя пользователя</p>
+                    </div>
+                    <div class="username__input__block">
+                        {{ form.username }}
+                    </div>
+                </div>
+                <div class="password__main__block">
+                    <div class="password__block">
+                        <p class="password">Пароль</p>
+                    </div>
+                    <div class="password__input__block">
+                        {{ form.password }}
+                    </div>
+                </div>
+                <div class="problem__block">
+                    <a href="{% url 'password_reset' %}" class="problem">Забыли пароль?</a>
+                </div>
+                <div class="login__btn__block">
+                    <button type="submit" class="login__btn">Войти</button>
+                </div>
+            </form>
+        </div>
+            {% if messages %}
+                {% for message in messages %}
+                    {% if message.tags == 'info' %}
+                        <div class="message__info__block">
+                            <p class="message__info">{{ message }}</p>
+                        </div>
+                    {% else %}
+                        <div class="message__success__block">
+                            <p class="message__success">{{ message }}</p>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+    </div>

@@ -1,0 +1,25 @@
+{% load news_tags %}
+<div class="burger1">
+    {% get_categories as categories %}
+    <span onclick="myFunction__nav__news()" class="drop__btn__news">Новости<i class="arrow__down__news"></i></span>
+    <div id="mySidenav" class="dropdown-content__news">
+        <div class="news__dropdown__links__block">
+            {% url 'news_index' as url_news_index %}
+            <div class="category__title">
+                <a {% if request.path ==  url_news_index  %} class="news__dropdown__active__all__cat" {% else %} class="news__dropdown__link__all" {% endif %} href="{{ url_news_index }}">Все новости</a>
+            </div>
+        </div>
+        {% for item in categories %}
+            <div class="news__dropdown__links__block">
+                {% url 'news_category' item.pk as url_news_category %}
+                <a {% if request.path == url_news_category %} class="active__news__cat" {% else %} class="category__nav" {% endif %} href="{{ url_news_category }}">{{ item.title }}</a>
+            </div>
+        {% endfor %}
+        {% if user.is_staff %}
+            <div class="news__add__mobile__block">
+                {% url 'add_news' as url_add_news %}
+                <a href="{% url 'add_news' %}" {% if request.path == url_add_news %} class="add__news__link__mobile__active" {% else %} class="add__news__link__mobile" {% endif %}>Добавить новость</a>
+            </div>
+        {% endif %}
+    </div>
+</div>

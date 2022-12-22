@@ -1,0 +1,21 @@
+{% load news_tags %}
+<div class="block__nav__news1515">
+    <div class="news__nav__block">
+        {% get_categories as categories %}
+        <div class="category__title">
+            {% url 'news_index' as url_news_index %}
+            <a href="{{ url_news_index }}" {% if request.path == url_news_index %} class="active__news__cat" {% else %} class="category__subtitle" {% endif %}>Все новости</a>
+        </div>
+        {% for item in categories %}
+            <div class="category__nav__block">
+                {% url 'news_category' item.pk as url_news_category %}
+                <a href="{{ url_news_category }}" {% if request.path == url_news_category %} class="active__news__cat" {% else %} class="category__nav" {% endif %}> {{ item.title }}</a>
+            </div>
+        {% endfor %}
+    </div>
+    {% if user.is_staff %}
+        <div class="add__news__link__block">
+            <a href="{% url 'add_news' %}" class="add__news__link">Добавить новость</a>
+        </div>
+    {% endif %}
+</div>

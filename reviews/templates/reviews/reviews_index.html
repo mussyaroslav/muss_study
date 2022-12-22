@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+{% load auth_extras %}
+{% load static %}
+{% block title %} Отзывы {% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="reviews__block__all__main">
+            <div class="reviews__block__all">
+                <div class="rev__title__block">
+                    <a class="rev__link" href="{% url 'reviews_index' %}"><h2 class="rev__title">Отзывы</h2></a>
+                </div>
+                <div class="reviews__form__block">
+                    {% if request.user|has_group:"Student_Reviews" %}
+                        <form class="rev__form" action="" method="POST">
+                            {% csrf_token %}
+                            <div class="gdgda15hgf8456">
+                                <div class="reviews__rating__stars">
+                                    <input type="radio" id="star5" name="rating" value="5"><label for="star5"></label>
+                                    <input type="radio" id="star4" name="rating" value="4"><label for="star4"></label>
+                                    <input type="radio" id="star3" name="rating" value="3"><label for="star3"></label>
+                                    <input type="radio" id="star2" name="rating" value="2"><label for="star2"></label>
+                                    <input type="radio" id="star1" name="rating" value="1"><label for="star1"></label>
+                                </div>
+                                <div class="reviews__user__photo__block1">
+                                    <a href="{% url 'user_profile' request.user.username %}"><img src="{{ request.user.profile.photo.url }}"
+                                                                                                  alt="Profile photo" class="reviews__user__photo"></a>
+                                </div>
+                                <div class="rev__form__content">
+                                    <div class="rev__name__block1">
+                                        <div>
+                                            <a class="reviews__user__link" href="{% url 'user_profile' request.user.username %}">
+                                                {{ request.user.get_full_name }}
+                                            </a>
+                                        </div>
+                                    </div>
+                                    {{ form.review_content }}
+                                </div>
+                            </div>
+                            <div class="rev__btn__block">
+                                <input type="submit" value="Отправить" class="rev__btn">
+                            </div>
+                        </form>
+                    {% endif %}
+                </div>
+                <div class="reviews__block">
+                    {% for item in reviews %}
+                        <div class="reviews__block1">
+                            <div class="date__and__star__block">
+                                <div class="star__block">
+                                    {% if item.rating == 1 %}
+                                        <label class="star"></label>
+                                    {% endif %}
+                                    {% if item.rating == 2 %}
+                                        <label class="star"></label>
+                                        <label class="star"></label>
+                                    {% endif %}
+                                    {% if item.rating == 3 %}
+                                        <label class="star"></label>
+                                        <label class="star"></label>
+                                        <label class="star"></label>
+                                    {% endif %}
+                                    {% if item.rating == 4 %}
+                                        <label class="star"></label>
+                                        <label class="star"></label>
+                                        <label class="star"></label>
+                                        <label class="star"></label>
+                                    {% endif %}
+                                    {% if item.rating == 5 %}
+                                        <label class="star"></label>
+                                        <label class="star"></label>
+                                        <label class="star"></label>
+                                        <label class="star"></label>
+                                        <label class="star"></label>
+                                    {% endif %}
+                                </div>
+                                <div class="date__rev__block">
+                                    {{ item.review_created_at|date|cut:"г."}}
+                                </div>
+                            </div>
+                            <div class="reviews__photo__comment__block">
+                                <div class="reviews__user__photo__block">
+                                    <a href="/{{ item.user.username }}/"><img src="{{ item.user.profile.photo.url }}"
+                                                    alt="Profile photo" class="reviews__user__photo"></a>
+                                </div>
+                                <div class="name__and__content__block">
+                                    <div class="rev__name__block">
+                                        <div>
+                                            <a class="reviews__user__link" href="/{{ item.user.username }}/">
+                                                {{ item.user.get_full_name }}
+                                            </a>
+                                        </div>
+                                        <div class="date__and__star__block1">
+                                            <div class="star__block">
+                                                {% if item.rating == 1 %}
+                                                    <label class="star"></label>
+                                                {% endif %}
+                                                {% if item.rating == 2 %}
+                                                    <label class="star"></label>
+                                                    <label class="star"></label>
+                                                {% endif %}
+                                                {% if item.rating == 3 %}
+                                                    <label class="star"></label>
+                                                    <label class="star"></label>
+                                                    <label class="star"></label>
+                                                {% endif %}
+                                                {% if item.rating == 4 %}
+                                                    <label class="star"></label>
+                                                    <label class="star"></label>
+                                                    <label class="star"></label>
+                                                    <label class="star"></label>
+                                                {% endif %}
+                                                {% if item.rating == 5 %}
+                                                    <label class="star"></label>
+                                                    <label class="star"></label>
+                                                    <label class="star"></label>
+                                                    <label class="star"></label>
+                                                    <label class="star"></label>
+                                                {% endif %}
+                                            </div>
+                                            <div class="date__rev__block">
+                                                {{ item.review_created_at|date|cut:"г."}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="rev__content__block"> {{ item.review_content|linebreaksbr }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

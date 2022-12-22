@@ -1,0 +1,547 @@
+@import "variables";
+@import "mixins";
+
+body {
+font-family: 'Open Sans', sans-serif;
+margin: 0;
+color: $text__color;
+background: $background__grey;
+}
+
+*,
+*::after,
+*::before {
+box-sizing: border-box;
+}
+
+.nav__user__name {
+    padding-right: 5px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.right__nav:hover .nav__user__name {
+    color: $blue__text__button;
+    transition: .12s all linear;
+}
+
+.container__header {
+    padding: 0 15px;
+}
+
+.header { /* Хедер */
+    background: rgb(255 255 255 / 98%);
+    height: 50px;
+    border-bottom: 1px solid $border__bottom__grey;
+    position: sticky;
+    top: 0;
+    z-index: 2021;
+}
+
+.header__inner { /* Весь блок навигации */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px; /* высота хедера */
+}
+
+.header__nav__ul { /* Блок меню навигации слева */
+    list-style: none;
+    font-size: 16px;
+    font-weight: 600;
+    width: 425px; /* было 385 + 123 логотип гугл и + 30 паддинг между лого и ссылкой*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.header__nav__link { /* Ссылки навигации */
+    text-decoration: none;
+    color: $text__color;
+    padding: 14px 0;
+}
+
+.header__nav__link__active {
+    text-decoration: none;
+    color: $blue__text__button;
+    padding: 14px 0 12px 0;
+    border-bottom: 2px $blue__text__button solid;
+}
+
+.header__nav__link:hover { /* Ховер ссылок навигации */
+    color: $blue__text__button;
+    transition: .12s linear all;
+}
+
+/* Логотип*/
+
+.header__logo { /* Картинка размер*/
+    height: 32px;
+}
+
+.header__logo__link { /* Ссылка на картинку с переходом на главную*/
+    height: 32px;
+}
+
+.header__logo__inner { /* Размер блока с логотипом*/
+    height: 32px;
+}
+
+/* Правая часть хедера */
+
+.header__login__register { /* Блок кнопок регистрации и логина */
+    font-size: 15px;
+    font-weight: 600;
+    width: 190px;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.header__login { /* Ссылка на логин */
+    text-decoration: none;
+    color: $blue__text__button;
+    border: 1px solid $blue__text__button;
+    padding: 4px 9px;
+    border-radius: 5px;
+}
+
+.header__login:hover { /* Ховер ссылки на логин */
+    @include icons__block__hover;
+}
+
+.header__register { /* Ссылка на регистрацию */
+    text-decoration: none;
+    color: $white;
+    background-color: $blue__text__button;
+    border: 1px solid $blue__text__button;
+    padding: 4px 9px;
+    border-radius: 5px;
+}
+
+.header__register:hover { /* Ховер ссылки на регистрацию */
+    @include button__blue__hover;
+}
+.right__nav { /* Правая часть авторизованного пользователя */
+    margin: 0;
+    padding: 0;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.drop__btn { /* Кнопка картинки на выпадающее окно */
+    margin: 0;
+    border: none;
+    cursor: pointer;
+    background-color: $white;
+    z-index: 2021;
+}
+
+/* Картинка */
+
+.top__profile__img { /* Фото профиля */
+    margin: 0;
+    width: 32px;
+    height: 32px;
+    object-fit:cover;
+    border-radius: 32px;
+}
+
+.drop__btn:hover, .drop__btn:focus, .drop__btn:active { /* Обводка кнопки */
+    outline: none;
+}
+
+.dropdown-content { /* Выпадающее меню */
+    display: none;
+    position: absolute;
+    background-color: $white;
+    overflow: auto;
+    box-shadow: $box__shadow;
+    width: 150px;
+    top: 35px;
+    border-radius: 5px;
+    right: 0;
+    padding: 5px 10px;
+}
+
+.dropdown__links { /* Ссылки из выпадающего окна */
+    color: $text__color;
+    text-decoration: none;
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    align-items: center;
+    width: 130px;
+    padding: 5px;
+}
+
+.dropdown__links__active {
+    color: $blue__text__button;
+    text-decoration: none;
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    align-items: center;
+    width: 130px;
+    padding: 5px;
+}
+
+.dropdown__menu__icons__active { /* Размер иконки */
+    width: 20px;
+    height: 20px;
+    fill: $blue__text__button;
+}
+
+.dropdown__links__block:hover { /* Ховер блока ссылок */
+    @include icons__block__hover;
+}
+
+.dropdown__links__block:hover .dropdown__menu__icons {
+    @include icons__fill__blue__hover;
+}
+
+.dropdown__links__block:hover .dropdown__links {
+    @include text__blue__hover;
+}
+
+.show {
+    display: block;
+}
+/* Джава */
+
+.dropdown__links__block { /* Блок ссылок выпадающего окна для обводки 30px */
+    height: 30px;
+    width: 130px;
+    margin: 0;
+    border-radius: 5px;
+    display: inline-flex;
+    align-items: center;
+}
+
+/* Блок иконок */
+
+.dropdown__menu__icons__block { /* Блок для иконок */
+    align-content: center;
+    align-items: center;
+    height: 30px;
+    padding: 5px 0 5px 5px;
+    margin: 0;
+}
+
+/* Размер иконки */
+
+.dropdown__menu__icons { /* Размер иконки */
+    width: 20px;
+    height: 20px;
+}
+/* К0рзина */
+
+.bell { /* Иконка колокольчика */
+    height: 30px;
+    padding: 5px;
+}
+
+.bell__block { /* Блок колокольчика */
+    margin: 0;
+    height: 30px;
+    width: 30px;
+    border-radius: 5px;
+}
+
+.bell__block:hover { /* Обводка колокольчика */
+    @include icons__block__hover;
+}
+
+.bell__block:hover .bell {
+    @include icons__fill__blue__hover;
+}
+
+.shopping__bag__block { /* Весь блок кнопки на корзину */
+    height: 30px;
+    border-radius: 5px;
+}
+
+.bag__img { /* Иконка корзины */
+    height: 30px;
+    padding: 5px;
+}
+
+.shopping__bag { /* Блок иконки корзины */
+    width: 30px;
+    height: 30px;
+}
+
+.bag__link {
+
+}
+
+.shopping__bag__block:hover { /* Обводка всей кнопки при наведении */
+    @include icons__block__hover;
+}
+
+.shopping__bag__block:hover .bag__img {
+    @include icons__fill__blue__hover;
+}
+
+@media (min-width: 1199.98px) {
+    .container__header { /* Контейнер */
+        @include container__1140;
+    }
+
+    .burger {
+        display: none;
+    }
+
+    .dropdown__block { /* Блок кнопки */
+        width: 32px;
+        height: 32px;
+        border-radius: 32px;
+        position: relative;
+        display: inline-block;
+        float: left;
+    }
+}
+
+@media (min-width: 991.98px) and (max-width: 1199.98px) {
+    .container__header { /* Контейнер */
+        @include container__960;
+    }
+
+    .burger {
+        display: none;
+    }
+
+    .dropdown__block { /* Блок кнопки */
+        width: 32px;
+        height: 32px;
+        border-radius: 32px;
+        position: relative;
+        display: inline-block;
+        float: left;
+    }
+}
+
+@media (min-width: 767.98px) and (max-width: 991.98px) {
+    .container__header {
+        @include container__720;
+        padding: 0 12px;
+    }
+
+    .header__nav__ul {
+        display: none;
+    }
+
+    .burger {
+        width: 32px;
+        height: 32px;
+        position: relative;
+        display: inline-block;
+        float: left;
+    }
+
+    .drop__btn__nav {
+        width: 32px;
+        height: 32px;
+        margin: 0;
+        padding: 0;
+        border: none;
+        cursor: pointer;
+        background-color: $white;
+    }
+
+    .drop__btn__nav:hover, .drop__btn__nav:focus, .drop__btn__nav:active { /* Обводка кнопки */
+        outline: none;
+    }
+
+    .dropdown-content__nav {
+        display: none;
+        position: absolute;
+        background-color: $white;
+        overflow: auto;
+        box-shadow: $box__shadow;
+        width: 150px;
+        top: 35px;
+        z-index: 2021;
+        border-radius: 5px;
+        left: 0;
+        padding: 5px 10px;
+    }
+
+    .show {
+        display: block;
+    }
+
+    .dropdown__block { /* Блок кнопки */
+        width: 36px;
+        height: 32px;
+        border-radius: 32px;
+        padding-right: 4px;
+        position: relative;
+        display: inline-block;
+        float: left;
+    }
+
+    .header__login__register {
+        margin-right: 4px;
+    }
+}
+
+@media (min-width: 575.98px) and (max-width: 767.98px) {
+    .container__header {
+        @include container__540;
+        padding: 0 12px;
+    }
+
+    .header__nav__ul {
+        display: none;
+    }
+
+    .burger {
+        width: 32px;
+        height: 32px;
+        position: relative;
+        display: inline-block;
+        float: left;
+    }
+
+    .drop__btn__nav {
+        width: 32px;
+        height: 32px;
+        margin: 0;
+        padding: 0;
+        border: none;
+        cursor: pointer;
+        background-color: $white;
+    }
+
+    .drop__btn__nav:hover, .drop__btn__nav:focus, .drop__btn__nav:active { /* Обводка кнопки */
+        outline: none;
+    }
+
+    .dropdown-content__nav {
+        display: none;
+        position: absolute;
+        background-color: $white;
+        overflow: auto;
+        box-shadow: $box__shadow;
+        width: 150px;
+        top: 35px;
+        z-index: 2021;
+        border-radius: 5px;
+        left: 0;
+        padding: 5px 10px;
+    }
+
+    .show {
+        display: block;
+    }
+
+    .dropdown__block { /* Блок кнопки */
+        width: 36px;
+        height: 32px;
+        border-radius: 32px;
+        padding-right: 4px;
+        position: relative;
+        display: inline-block;
+        float: left;
+    }
+
+    .header__login__register {
+        margin-right: 4px;
+    }
+}
+
+.mobile__logo__block {
+    display: none;
+
+}
+
+@media (max-width: 575.98px) {
+
+    .mobile__logo__block {
+        display: flex;
+        margin: 0;
+        padding-left: 6px;
+    }
+
+    .nav__user__name {
+        display: none;
+    }
+
+    .container__header {
+        @include container__phone;
+        padding: 0 12px;
+    }
+
+    .header__nav__ul {
+        display: none;
+    }
+
+    .burger {
+        width: 32px;
+        height: 32px;
+        position: relative;
+        display: inline-block;
+        float: left;
+        z-index: 2021;
+    }
+
+    .drop__btn__nav {
+        width: 32px;
+        height: 32px;
+        margin: 0;
+        padding: 0;
+        border: none;
+        cursor: pointer;
+        background-color: $white;
+    }
+
+    .drop__btn__nav:hover, .drop__btn__nav:focus, .drop__btn__nav:active { /* Обводка кнопки */
+        outline: none;
+    }
+
+    .dropdown-content__nav {
+        display: none;
+        position: absolute;
+        background-color: $white;
+        overflow: auto;
+        box-shadow: $box__shadow;
+        width: 150px;
+        top: 35px;
+        border-radius: 5px;
+        left: 0;
+        padding: 5px 10px;
+    }
+
+    .show {
+        display: block;
+    }
+
+    .dropdown__block { /* Блок кнопки */
+        width: 36px;
+        height: 32px;
+        border-radius: 32px;
+        padding-right: 4px;
+        position: relative;
+        display: inline-block;
+        float: left;
+    }
+
+    .header__login__register {
+        margin-right: 4px;
+    }
+
+    .header__register {
+        display: none;
+    }
+
+    .header__login__register {
+        width: 100%;
+    }
+}

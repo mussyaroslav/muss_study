@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Удалить новость
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="news__category__nav">
+            {% include 'inc/_news_burger_mobile.html' %}
+        </div>
+        <div class="news__con__block">
+                {% include 'inc/_news_nav.html' %}
+            <div class="add__news__form__block">
+                <h1 class="add__news__h1">Удалить новость</h1>
+                <form class="add__news__form" action="" method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <div class="news__delete__h2__block">
+                        <h2 class="news__delete__h2">Вы уверены?</h2>
+                    </div>
+                    <div class="news__delete__block__text">
+                        <p class="news__delete__text2">Вы уверены, что хотите удалить новость:
+                            <a class="news__delete__text3__link" href="{{ news.get_absolute_url }}">
+                            "{{ news.title_news }}"
+                            </a>
+                        </p>
+                    </div>
+                    <div class="btn__add__news">
+                        <div class="btn__add__news__i__block">
+                            <input type="submit" value="Да, я уверен" class="add__news__back1">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

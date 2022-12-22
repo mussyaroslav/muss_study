@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/header/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profile/profile.css' %}">
+    <link rel="stylesheet" href="{% static 'css/home/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/settings/settings.css' %}">
+    <link rel="stylesheet" href="{% static 'css/password-change/password-change.css' %}">
+    <link rel="stylesheet" href="{% static 'css/password-reset/password-reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/password-reset-form/password-reset-form.css' %}">
+    <link rel="stylesheet" href="{% static 'css/password-reset-done/password-reset-done.css' %}">
+    <link rel="stylesheet" href="{% static 'css/news_index/news_index.css'%}">
+    <link rel="stylesheet" href="{% static 'css/add_news/add_news.css' %}">
+    <link rel="stylesheet" href="{% static 'css/edit_news/edit_news.css' %}">
+    <link rel="stylesheet" href="{% static 'css/reviews_index/reviews_index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/shop_index/shop_index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/contact_us/contact_us.css' %}">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+
+{% include 'inc/_nav.html' %}
+
+{% block content %}
+{% endblock %}
+<script type="text/javascript" src="{% static 'js/nav.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/progress_bar.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/progress_bar_settings.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/progress_bar_back.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/preview.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/scroll.js' %}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</body>
+</html>

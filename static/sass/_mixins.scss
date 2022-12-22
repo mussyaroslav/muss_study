@@ -1,0 +1,50 @@
+@import "variables";
+
+@mixin button__blue__hover {
+    background: $blue__text__button__hover;
+    transition: all .12s linear;
+}
+
+@mixin icons__fill__blue__hover {
+    fill: $blue__text__button;
+    transition: all .12s linear;
+}
+
+@mixin icons__block__hover {
+    background: $button__blue__10;
+    transition: all .12s linear;
+}
+
+@mixin text__blue__hover {
+    color: $blue__text__button;
+    transition: all .12s linear;
+}
+
+@mixin container__1140 {
+    max-width: 1170px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@mixin container__960 {
+    max-width: 990px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@mixin container__720 {
+    max-width: 750px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@mixin container__540 {
+    max-width: 570px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+@mixin container__phone {
+    width: 100%;
+    padding: 0;
+}

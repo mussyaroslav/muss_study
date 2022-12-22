@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    {{ news_item.title_news }}
+{% endblock %}
+{% block content %}
+    <div class="container">
+        <div class="news__category__nav">
+            {% include 'inc/_news_burger_mobile.html' %}
+        </div>
+        <div class="news__con__block">
+                {% include 'inc/_news_nav.html' %}
+            <div>
+                <div class="news__main__block">
+                    <div class="news__title__block">
+                        <h1 class="news__title">{{ news_item.title_news }}</h1>
+                        <a href="{% url 'news_category' news_item.category.pk %}" class="category">Категория: {{ news_item.category }}</a>
+                    </div>
+                    <div class="news__content__block">
+                        {{ news_item.content_news|linebreaksbr }}
+                    </div>
+                    <div class="news__photo__block">
+                        {% if news_item.photo_news%}
+                            <img class="news__photo" alt="" src="{{ news_item.photo_news.url }}">
+                        {% endif %}
+                    </div>
+                    <div class="created__at__block">
+                        <p class="created__at">Дата публикации: {{ news_item.created_at|date:"H:m d.m.Y" }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

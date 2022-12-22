@@ -27,7 +27,7 @@ class WebhookResponse(ResponseObject):
 
     @property
     def url(self):
-        return self.__event
+        return self.__url
 
     @url.setter
     def url(self, value):
